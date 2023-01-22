@@ -1,7 +1,16 @@
 import { Component, Type, ViewChild, ViewContainerRef } from '@angular/core';
 import { AnimalComponent } from '../animal.component';
+import { BasicComponent } from '../animalGroups/basic.component';
+import { DetailedComponent } from '../animalGroups/detailed.component';
+import { GroupComponent } from '../animalGroups/group.component';
 import { ChickenComponent } from '../chicken.component';
 import { MooseComponent } from '../moose.component';
+
+
+interface AnimalCard { 
+  cardType: string;
+  animalType: string;
+}
 
 @Component({
   selector: 'app-root',
@@ -18,26 +27,35 @@ export class AppComponent {
     this.loadComponent();
   }
 
-  private animalTypeFactory(type: String): Type<AnimalComponent> {
-    console.log(type);
+  private animalTypeFactory(type: AnimalCard): Type<GroupComponent> {
+    // TODO: replace this with a strategy pattern
+    /*
     let component: Type<AnimalComponent>;
     if (type == 'chicken') {
-      component = ChickenComponent;
+      component = basicComponent;
     } else if (type == 'moose') {
       component = MooseComponent;
     } else {
       component = ChickenComponent;
     }
-    console.log(component);
+
     return component;
+  }
+  */
+
+  let component: Type<GroupComponent>
+  // the idea jere being it will return all three as a basis otherwise detailed
+  if(type.cardType == 'overview') {
+    component = BasicComponent; // this will give all 3 side by side
+  }else { 
+    component = DetailedComponent; // find a way to change the strategy here by passing in the animal type
+  }
+  return component;
   }
 
   private loadComponent(): void {
-    //this.viewRef.createComponent(ChickenComponent);
-    
-    this.viewRef.createComponent<AnimalComponent>(
-      this.animalTypeFactory('moose')
+    this.viewRef.createComponent<GroupComponent>(
+      this.animalTypeFactory({cardType: 'overview', animalType: 'chicken'}),
     );
-    
   }
 }

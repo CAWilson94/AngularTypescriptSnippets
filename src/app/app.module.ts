@@ -6,12 +6,18 @@ import {MatButtonModule} from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './basic/app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { InputExample } from './basic/inputexample.component';
+import { AnimalComponent } from './animal.component';
+import { GroupComponent } from './animalGroups/group.component';
+import {BasicComponent} from './animalGroups/basic.component';
+import {DetailedComponent} from './animalGroups/detailed.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InputExample
+    GroupComponent,
+    AnimalComponent,
+    DetailedComponent,
+    BasicComponent,
   ],
   imports: [
     BrowserModule,

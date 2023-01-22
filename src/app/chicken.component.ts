@@ -7,5 +7,6 @@ import { AnimalComponent } from "./animal.component";
 })
 
 export class ChickenComponent implements AnimalComponent{ 
-    
+    // should probably take in a service
+    name: string = 'chicken';
 }
