@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
-import { AnimalContext } from '../strategy/AnimalContext';
-import { Chicken } from '../strategy/Chicken';
-import { Jaguar } from '../strategy/Jaguar';
-import { Moose } from '../strategy/Moose';
+import { Component, Type, ViewChild, ViewContainerRef } from '@angular/core';
+import { AnimalComponent } from '../animal.component';
+import { ChickenComponent } from '../chicken.component';
+import { MooseComponent } from '../moose.component';
 
 @Component({
   selector: 'app-root',
@@ -10,19 +9,35 @@ import { Moose } from '../strategy/Moose';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = '2023jan';
-  chickenStrats = new Chicken();
-  jaguarStrats = new Jaguar();
-  mooseStrats = new Moose();
+  // tell viewChild to load 'container' and read it as a container ref
+  // this allows us to use the createComponent methods
+  @ViewChild('dynamic', { read: ViewContainerRef })
+  private viewRef!: ViewContainerRef;
 
-  messagefromAnimal: string = "No Message yet!";
+  public ngAfterViewInit(): void {
+    this.loadComponent();
+  }
 
-  context = new AnimalContext(this.jaguarStrats);
-  getName() {
-    return this.context.doSomeMagicThing();
-  } 
-  
-  messageHandler(message: string) { 
-    this.messagefromAnimal = message;
+  private animalTypeFactory(type: String): Type<AnimalComponent> {
+    console.log(type);
+    let component: Type<AnimalComponent>;
+    if (type == 'chicken') {
+      component = ChickenComponent;
+    } else if (type == 'moose') {
+      component = MooseComponent;
+    } else {
+      component = ChickenComponent;
+    }
+    console.log(component);
+    return component;
+  }
+
+  private loadComponent(): void {
+    //this.viewRef.createComponent(ChickenComponent);
+    
+    this.viewRef.createComponent<AnimalComponent>(
+      this.animalTypeFactory('moose')
+    );
+    
   }
 }
