@@ -1,0 +1,171 @@
+.middle-grid {
+    display: grid;
+
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    gap: 0px;
+    height: 100%;
+/* Not sure why this doesnt work?*/
+}
+
+#middle-0 {
+
+    background-color: #5AAB5A;
+    grid-row-start: 1;
+    grid-column-start: 1;
+
+    grid-row-end: 2;
+    grid-column-end: 2;
+
+}
+
+#middle-1 {
+
+    background-color: #557FCD;
+    grid-row-start: 1;
+    grid-column-start: 2;
+
+    grid-row-end: 2;
+    grid-column-end: 4;
+
+}
+
+#middle-2 {
+
+    background-color: #757CBD;
+    grid-row-start: 1;
+    grid-column-start: 4;
+
+    grid-row-end: 2;
+    grid-column-end: 5;
+
+}
+
+.angry-grid {
+    display: grid;
+
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+    gap: 0px;
+    height: 100%;
+    width: 900px;
+
+}
+
+#item-0 {
+
+    background-color: #d77559;
+    grid-row-start: 1;
+    grid-column-start: 1;
+
+    grid-row-end: 2;
+    grid-column-end: 6;
+
+}
+
+#item-1 {
+
+    background-color: #aadbda;
+    grid-row-start: 2;
+    grid-column-start: 1;
+
+    grid-row-end: 4;
+    grid-column-end: 2;
+
+}
+
+#item-2 {
+
+    background-color: #e6c7bb;
+    grid-row-start: 2;
+    grid-column-start: 2;
+
+    grid-row-end: 3;
+    grid-column-end: 5;
+
+}
+
+#item-3 {
+
+    background-color: #cc78a9;
+    grid-row-start: 3;
+    grid-column-start: 2;
+
+    grid-row-end: 4;
+    grid-column-end: 6;
+
+}
+
+
+.headings-grid {
+    display: grid;
+
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+    gap: 0px;
+    height: 100%;
+
+}
+
+#heading-0 {
+
+    background-color: #8B7695;
+    grid-row-start: 1;
+    grid-column-start: 1;
+
+    grid-row-end: 2;
+    grid-column-end: 6;
+
+}
+
+#heading-1 {
+
+    background-color: #C9B795;
+    grid-row-start: 2;
+    grid-column-start: 1;
+
+    grid-row-end: auto;
+    grid-column-end: 2;
+
+}
+
+#heading-2 {
+
+    background-color: #8BFFE9;
+    grid-row-start: 2;
+    grid-column-start: 2;
+
+    grid-row-end: 3;
+    grid-column-end: 3;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+#heading-3 {
+
+    background-color: #5559B7;
+    grid-row-start: 2;
+    grid-column-start: 3;
+
+    grid-row-end: 3;
+    grid-column-end: 4;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+#heading-4 {
+
+    background-color: #556799;
+    grid-row-start: 2;
+    grid-column-start: 4;
+
+    grid-row-end: 3;
+    grid-column-end: 5;
+    display: flex;
+    justify-content: space-around;
+}

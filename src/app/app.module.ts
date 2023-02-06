@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './basic/app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputExample } from './basic/inputexample.component';
+import { GaugeModule } from 'angular-gauge';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { InputExample } from './basic/inputexample.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule, 
-    MatButtonModule
+    MatButtonModule,
+    GaugeModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
