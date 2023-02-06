@@ -36,7 +36,7 @@ export class AppComponent {
     //this.viewRef.createComponent(ChickenComponent);
     
     this.viewRef.createComponent<AnimalComponent>(
-      this.animalTypeFactory('moose')
+      this.animalTypeFactory('chicken')
     );
     
   }
